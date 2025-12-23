@@ -1,59 +1,187 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #f4f6f8, #eef1f5);
+  color: #2b2b2b;
+}
+
+/* =========================
+   APP CONTAINER
+========================= */
+
 .app {
-  max-width: 700px;
-  margin: auto;
+  max-width: 760px;
+  margin: 40px auto;
   padding: 30px;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 h1 {
   text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   INPUT SECTION
+========================= */
+
+.input-box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .input-box textarea {
   width: 100%;
-  height: 120px;
-  padding: 10px;
+  height: 130px;
+  padding: 14px;
   font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  resize: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
+.input-box textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+}
+
+/* =========================
+   BUTTON
+========================= */
 
 .input-box button {
-  margin-top: 10px;
-  padding: 10px 20px;
+  margin-top: 15px;
+  padding: 12px 26px;
   font-size: 16px;
+  border-radius: 8px;
+  border: none;
   cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  color: white;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.result-card {
-  margin-top: 25px;
-  padding: 20px;
-  background: white;
-  border-radius: 6px;
+.input-box button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
 }
+
+.input-box button:disabled {
+  background: #9bbce8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================
+   RESULT CARD
+========================= */
+
+.result-card {
+  margin-top: 30px;
+  padding: 22px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.4s ease;
+}
+
+.result-card h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 20px;
+}
+
+/* =========================
+   GRID
+========================= */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 14px;
 }
+
+/* =========================
+   TAGS
+========================= */
 
 .tag {
-  padding: 10px;
-  border-radius: 4px;
+  padding: 14px 10px;
+  border-radius: 8px;
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.15s ease;
 }
 
+.tag span {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Safe & Danger states */
+
 .safe {
-  background: #d4edda;
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
   color: #155724;
 }
 
 .danger {
-  background: #f8d7da;
+  background: linear-gradient(135deg, #f8d7da, #f5c6cb);
   color: #721c24;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 24px;
+  }
 }
