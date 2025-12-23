@@ -185,3 +185,14 @@ h1 {
     font-size: 24px;
   }
 }
+.risk-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: #fff3cd;
+  color: #856404;
+  font-weight: bold;
+}
